@@ -1,0 +1,38 @@
+<div class="background-image">
+  <div class="navbar-wrapper">
+    <app-nav-bar></app-nav-bar>
+  </div>
+  <div class="top-container">
+    <div class="text-container gradient-background">
+      <h2>Minhas Viagens</h2>
+    </div>
+    
+  <div class="table-container" *ngIf="viagemList | async as viagemList">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Partida</th>
+          <th>Data</th>
+          <th>Destino</th>
+          <th>Contacto</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let viagem of viagemList">
+          <td>{{ viagem.nomeAluno }}</td>
+          <td>{{ viagem.cidadePartida }}</td>
+          <td>{{ viagem.dataViagem }}</td>
+          <td>{{ viagem.nomeInstituicao }}</td>
+          <td>{{ viagem.contacto }}</td>
+          <td>
+            <button pButton icon="pi pi-trash" (click)="deleteViagem(viagem.id)"  tooltip="Eliminar" tooltipPosition="top">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="empty-message" *ngIf="viagemList.length === 0">Não há viagens registadas.</div>
+  </div>
+</div>

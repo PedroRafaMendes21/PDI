@@ -1,0 +1,40 @@
+
+<div class="background-image">
+  <div class="navbar-wrapper">
+    <app-nav-bar></app-nav-bar>
+  </div>
+
+  <div class="top-container">
+    <div class="text-container gradient-background">
+      <h2>Reservas</h2>
+    </div>
+    <div class="table-container" *ngIf="reservasList | async as reservasList">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Data</th>
+            <th>Finalizar</th>
+          </tr>
+        </thead>
+        <tbody>
+         
+            <tr *ngFor="let reserva of reservasList">
+              <td>{{ reserva.userEmail }}</td>
+              <td>{{ reserva.viagemData.dataViagem }}</td>
+              <td>
+                <button pButton  (click)="deleteViagemAndReserva(reserva.viagemData.id, reserva.id)"
+                  class="p-button-danger p-button-sm" tooltip="Eliminar" tooltipPosition="top">Finalizar</button>
+              </td>
+            </tr>
+         
+        </tbody>
+      </table>
+  
+      <div class="empty-message" *ngIf="reservasList.length === 0">Não há reservas registadas.</div>
+    </div>
+
+
+</div>
+</div>
+

@@ -1,0 +1,39 @@
+<div class="background-image">
+  <div class="navbar-wrapper">
+    <app-nav-bar></app-nav-bar>
+  </div>  
+  <div class="top-container">
+    <div class="text-container gradient-background">
+      <h2>Adicionar Viagem</h2>   
+    </div>
+      <form [formGroup]="criarViagem" (submit)="onSubmit()" class="form-container">
+        
+        <label class="gradient-background1 text-center" for="nomeAluno">Nome Aluno</label>
+        <input  type="text" id="nomeAluno" name="nomeAluno" formControlName="nomeAluno" placeholder="Nome Aluno" required>
+
+        <label class="gradient-background1 text-center" for="cidadePartida">Cidade Partida</label>
+        <input type="text" id="cidadePartida" name="cidadePartida" formControlName="cidadePartida" placeholder="Cidade Partida" required>
+
+        <label class="gradient-background1 text-center" for="nomeInstituicao">Nome da Instituição</label>
+        <select id="nomeInstituicao" name="nomeInstituicao" formControlName="nomeInstituicao" required>
+          <option value="">Selecionar instituição</option>
+          <option value="ESAC">ESAC</option>
+          <option value="ESEC">ESEC</option>
+          <option value="ESTGOH">ESTGOH</option>
+          <option value="ESTeSC">ESTeSC</option>
+          <option value="ISCAC">ISCAC</option>
+          <option value="ISEC">ISEC</option>
+        </select>
+
+        <label class="gradient-background1 text-center" for="dataViagem">Data Viagem</label>
+        <input type="date" id="dataViagem" name="dataViagem" formControlName="dataViagem" placeholder="Data Viagem" required>
+
+        <label class="gradient-background1 text-center" for="contacto">Contacto</label>
+        <input type="text" id="contacto" name="contacto" formControlName="contacto" placeholder="Contacto" required>
+
+        <button type="submit">Registar Viagem</button>
+      </form>
+   
+
+  </div>
+
